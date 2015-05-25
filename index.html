@@ -1,24 +1,128 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Twittler</title>
     <script src="jquery.js"></script>
+    <script src="jquery.timeago.js" type="text/javascript"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="stylesheet.css"/>
   </head>
+
   <body>
+    <div class="header">
+        <h1>Twittler!</h1>
+    </div>
+
+    <div class = "bottom">
+      <div class="main-text">
+          <div id="buttons">
+              <button class="doSomething" id="loadMe">
+                  <h1 class="fade">Load Tweetles!</h1>
+                  <h1 class="goop" >You are viewing a Tweetle Timeline! <br /> Click again to Load more Tweetles!</h4>
+              </button>
+          </div>
+          <div class="tweets">
+          </div>
+      </div>
+     
     <script>
-
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
+        $("abbr.timeago").timeago();
+
+        $("button").on("mouseenter", function(){
+          $(this).closest(".doSomething").addClass("hover")
+        }); 
+
+        $("button").on("mouseleave", function(){
+          $(this).closest(".doSomething").removeClass("hover");
+        }); 
+
+        $(".tweets").on("mouseenter", "div", function(){
+          $(this).addClass("hover")
+        }); 
+
+        $(".tweets").on("mouseleave", "div", function(){
+          $(this).removeClass("hover")
+        }); 
+
+        $("div").on("mouseenter", ".plain-user", function(){
+          $(this).addClass("hover-user");
+        }); 
+
+        $("div").on("mouseleave", ".plain-user", function(){
+          $(this).removeClass("hover-user");
+        }); 
+
+        var $twit = $('.tweets');
+        $twit.html('');
+
+        $twit.on("click", ".shawndrost", function(){
+          $(".mracus").fadeOut();
+          $(".douglascalhoun").fadeOut();
+          $(".sharksforcheap").fadeOut();
+          $(".fade").fadeOut();
+          $(".goop").fadeIn();
+        });
+
+        $twit.on("click", ".mracus", function(){
+          $(".shawndrost").fadeOut();
+          $(".douglascalhoun").fadeOut();
+          $(".sharksforcheap").fadeOut();
+          $(".fade").fadeOut();
+          $(".goop").fadeIn();
+        });
+
+        $twit.on("click", ".douglascalhoun", function(){
+          $(".mracus").fadeOut();
+          $(".shawndrost").fadeOut();
+          $(".sharksforcheap").fadeOut();
+          $(".fade").fadeOut();
+          $(".goop").fadeIn();
+        });
+
+        $twit.on("click", ".sharksforcheap", function(){
+          $(".mracus").fadeOut();
+          $(".douglascalhoun").fadeOut();
+          $(".shawndrost").fadeOut();
+          $(".fade").fadeOut();
+          $(".goop").fadeIn();
+        });
+
+      var index = 0;
+
+      $("#loadMe").on("click", function(event){
+          $(".fade").fadeIn();
+          $(".goop").fadeOut();
+          $(".mracus").fadeIn();
+          $(".douglascalhoun").fadeIn();
+          $(".sharksforcheap").fadeIn();
+          $(".shawndrost").fadeIn();
+
+        while(index <= streams.home.length - 1){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+          var $anchor = $('<a></a>')
+          var $parag = $('<p></p>');
+          var $parag2 = $('<p></p>');
+          var time = jQuery.timeago(new Date());  
+          var dt = new Date()
+          // (new Date).getTime();
+          // moment().startOf('minute').fromNow();
+          var time2 = dt.getHours() + ":" + dt.getMinutes() + "         " + dt.getSeconds() + " seconds";
+          $anchor.text("@" + tweet.user).addClass("plain-user");
+          $tweet.text(': ' + tweet.message).addClass("test").addClass(tweet.user);
+          $parag.text("Twittled at " + time2 + ".");
+          $anchor.prependTo($tweet);
+          $parag.appendTo($tweet);
+          $tweet.prependTo($twit)
+          $twit.addClass("hide");
+          $twit.fadeIn("slow");
+
+
+          index ++;
+          }
+        });
 
       });
 

@@ -1,0 +1,105 @@
+
+html, body, h1, h2, h3, p, ol, ul, li, a {
+	padding:0;
+	border:0;
+	margin:0;
+}
+
+body {
+  background-color: #C2ECFF;
+}
+
+button{
+	color:white;
+	font-family:comic;
+}
+
+.header {
+	color:#1dcaff;
+	background: #ffffff;
+	height:115px;
+	width: 100%;
+	line-height: 115px;
+	text-align: center;
+	border-bottom: 2px solid;
+	border-color: #B2B28F;
+	font-style: italic;
+	font-size: 75px;
+}
+
+.main-text{
+	text-align: center;
+}
+
+:focus{
+	outline:none;
+}
+
+.test{
+	border-radius: 12px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #1dcaff;
+	background: #00aced;
+	color:white;
+	margin-bottom:10px;
+	padding:5px 15px 5px 15px;
+	font-size: 24px;*/
+}
+
+.tweets{
+	text-align: left;
+	width:835px;
+	margin: auto;
+	padding:15px;
+	left:15%;
+}
+
+.doSomething {
+	background:#D7BAEC;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #8C6CB5;
+	width: 600px;
+	height: 100px;
+	margin: 15px;
+
+}
+
+#users button {
+	text-align: left;
+}
+
+p{
+	text-align: right;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.hover{
+	background: #C6A4CC;
+}
+
+.loadMe{
+	display:none;
+}
+
+.plain-user{
+	cursor:pointer;
+	color:black;
+}
+
+.hover-user{
+	color:blue;
+	font-style:italic;
+}
+
+.hide{
+display:none;
+}
+
+.goop{
+display:none; 
+}
+
